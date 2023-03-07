@@ -1,7 +1,6 @@
-package page;
+package pages;
 
 import helpers.BaseHelpers;
-import helpers.UrlHelper;
 import org.openqa.selenium.By;
 
 public class AlertPage extends BaseHelpers {

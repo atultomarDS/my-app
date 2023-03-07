@@ -2,7 +2,7 @@ package test;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import page.AlertPage;
+import pages.AlertPage;
 import setup.BrowserSetup;
 
 public class verifyAlertBox extends BrowserSetup {

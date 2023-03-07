@@ -2,7 +2,7 @@ package test;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import page.BasicFormPage;
+import pages.BasicFormPage;
 import setup.BrowserSetup;
 
 public class verifyBasicForm extends BrowserSetup {

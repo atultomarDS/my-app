@@ -1,4 +1,4 @@
-CHOCO TEST INSTRUCTIONS:
+TEST INSTRUCTIONS:
 
 - Clone the app code(my-app).
 - Import the Project into any IDE(eclipse/Intellij).
@@ -6,25 +6,19 @@ CHOCO TEST INSTRUCTIONS:
 
 Directories Definition: 
 
-src/main/java/app/helpers:
-- Base Selenium and CONSTANT file is there. Initiating the driver and all selenium functions are here.
-- Open The CONSTANT interface and change the `APP_PATH` to the path where app apk exists. This can be loaded via System properties too.
+src/main/java/helpers:
+- Base Selenium and other helpers are present here. Initiating the driver and all selenium functions are here.
 
-src/main/java/app/pages: 
-- Page Objects are defined here. Here I considered Onboarding Page as single page.
+src/main/java/pages: 
+- Page Objects are defined here.
 
-src/test/java/app/setup:
-- App launch and close methods are defined with testng before/after annotations.
+src/test/java/setup:
+- Browser launch and close methods are defined with testng before/after annotations.
 
 src/test/java/app/test:
-- Actual Test is mentioned here.
-- Positive flow, with correct data.
-- Negative flow, with incorrect phone number.
-- Negative flow, with incorrect sms code.
+- Tests for all 3 pages are mentioned here.
+- Only positive flow is covered.
 - Assertions are also done here.
 
-- Click RunAll to run all the tests. Or use maven command - "mvn clean test" or "mvn clean -Dtest=verifyAppFeature test"
+- Click RunAll to run all the tests. Or use maven command - "mvn clean test" or "mvn clean -Dtest=verifyAlertBox test", "mvn clean -Dtest=verifyBasicForm test", "mvn clean -Dtest=verifyRegistration test"
 - Check the output under test-output folder.
-
-TextCases.txt:
-- All test cases in Gherkin format are present here.

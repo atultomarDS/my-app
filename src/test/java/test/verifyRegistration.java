@@ -3,8 +3,7 @@ package test;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import page.BasicFormPage;
-import page.RegistrationPage;
+import pages.RegistrationPage;
 import setup.BrowserSetup;
 
 public class verifyRegistration extends BrowserSetup{
