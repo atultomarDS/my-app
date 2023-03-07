@@ -16,7 +16,7 @@ public class AlertPage extends BaseHelpers {
     }
 
     public Boolean assertAlertBoxText(String alertText) {
-        String text = driver.switchTo().alert().getText();
+        String text = getAlertText();
         if (alertText.equalsIgnoreCase(text)) {
             System.out.println("Alert message is present: " + text);
             return true;

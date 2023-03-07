@@ -72,14 +72,23 @@ public class BaseHelpers {
         return elementText;
     }
 
+    public Boolean verifyInputFieldIsEmpty(By by) {
+        waitforElementVisible(by);
+        String elementText = getAttribute(by, "value");
+
+        if (elementText.length() == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public Boolean elementContainsText(By by, String text) {
         waitforElementVisible(by);
         String actualString = getText(by);
         if (actualString.equalsIgnoreCase(text)) {
-            System.out.println("String is present " + text);
             return true;
         } else {
-            System.out.println("String is not present " + text);
             return false;
         }
     }
@@ -113,31 +122,6 @@ public class BaseHelpers {
         List<WebElement> webElements = driver.findElements(by);
 
         return webElements;
-    }
-
-    public Boolean isElementPresent(By by) {
-        List<WebElement> elements = driver.findElements(by);
-
-        return elements.size() > 0;
-    }
-
-    public Boolean isElementSelected(By by) {
-        Boolean isElementSelected = driver.findElement(by).isSelected();
-
-        return isElementSelected;
-    }
-
-    public Boolean isElementDisplayed(By by) {
-        waitforElementVisible(by);
-        Boolean isElementDisplayed = driver.findElement(by).isDisplayed();
-
-        return isElementDisplayed;
-    }
-
-    public Boolean isElementEnabled(By by) {
-        Boolean isElementEnabled = driver.findElement(by).isEnabled();
-
-        return isElementEnabled;
     }
 
     public void acceptAlert() {

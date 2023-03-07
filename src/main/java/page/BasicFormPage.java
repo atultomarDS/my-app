@@ -85,6 +85,7 @@ public class BasicFormPage extends BaseHelpers {
     }
 
     public void speakGerman(Boolean enable) {
+        // Need to click toggle button once to generate `germanValidator` (green text of input).
         clickElement(Locators.speaksGerman);
         if (enable == true && elementContainsText(BasicFormPage.Locators.germanValidator, "false")) {
             clickElement(Locators.speaksGerman);
@@ -96,26 +97,30 @@ public class BasicFormPage extends BaseHelpers {
     }
 
     public void setGermanFluency(int rating) {
+        // Need to set slider to 0 for proper slide set later
         slideElement(Locators.germanFluency, "Left", 3);
-        if (rating == 0) {
-            System.out.println("Set to 0");
-        } else if (rating == 1) {
-            slideElement(Locators.germanFluency, "Right", 1);
-            System.out.println("Set to 1");
-        } else if (rating == 2) {
-            slideElement(Locators.germanFluency, "Right", 2);
-            System.out.println("Set to 2");
-        } else if (rating == 3) {
-            slideElement(Locators.germanFluency, "Right", 3);
-            System.out.println("Set to 1");
-        } else if (rating == 4) {
-            slideElement(Locators.germanFluency, "Right", 4);
-            System.out.println("Set to 1");
-        } else if (rating == 5) {
-            slideElement(Locators.germanFluency, "Right", 5);
-            System.out.println("Set to 1");
-        } else {
-            System.out.println("Rating should be between 0 and 5");
+        switch (rating) {
+            case 0:
+                System.out.println("Set to 0");
+                break;
+            case 1:
+                slideElement(Locators.germanFluency, "Right", 1);
+                break;
+            case 2:
+                slideElement(Locators.germanFluency, "Right", 2);
+                break;
+            case 3:
+                slideElement(Locators.germanFluency, "Right", 3);
+                break;
+            case 4:
+                slideElement(Locators.germanFluency, "Right", 4);
+                break;
+            case 5:
+                slideElement(Locators.germanFluency, "Right", 5);
+                break;
+            default:
+                System.out.println("Rating should be between 0 and 5");
+                break;
         }
     }
 

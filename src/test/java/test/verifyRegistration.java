@@ -1,7 +1,9 @@
 package test;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import page.BasicFormPage;
 import page.RegistrationPage;
 import setup.BrowserSetup;
 
@@ -12,7 +14,7 @@ public class verifyRegistration extends BrowserSetup{
 
 		rp.enterFirstName("Atul");
 		rp.enterLastName("Tomar");
-		rp.selectMaritialStatus("Single");
+		rp.selectMaritalStatus("Married");
 		rp.selectHobby("Cricket");
 		rp.selectCountryFromDropdown("India");
 		rp.selectDateOfBirth("1", "1", "2014");
@@ -24,5 +26,8 @@ public class verifyRegistration extends BrowserSetup{
 		rp.enterPassword("qwerty");
 		rp.enterConfirmPassword("qwerty");
 		rp.clickSubmitButton();
+
+		// There is no success page, so verifying that first name field is empty
+		Assert.assertTrue(rp.verifyInputFieldIsEmpty(RegistrationPage.Locators.firstName));
 	}
 }

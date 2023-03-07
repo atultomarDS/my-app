@@ -49,5 +49,8 @@ public class verifyBasicForm extends BrowserSetup {
         bf.enterZip("22087");
         bf.agreeTermsAndContition();
         bf.clickSubmitFormButton();
+
+        // There is no success page, so verifying that automation experience field is empty
+        Assert.assertTrue(bf.verifyInputFieldIsEmpty(BasicFormPage.Locators.automationExperience));
     }
 }

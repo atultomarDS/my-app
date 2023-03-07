@@ -5,13 +5,15 @@ import java.util.List;
 import helpers.BaseHelpers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class RegistrationPage extends BaseHelpers {
     public interface Locators {
+        By pageTitle = By.xpath("//h2[contains(text(), 'Registration Form')]");
         By firstName = By.name("name");
         By lastName = By.xpath("//*[contains(text(), \"Last Name\")]/following-sibling::input");
-        By maritalStatusRadioButton = By.xpath("//div[@class='radio_wrap']/label/input[@name='m_status']");
-        By hobbyCheckbox = By.name("hobby");
+        By maritalStatusRadioButton = By.xpath("//*[@name='m_status']/parent::label");
+        By hobbyCheckbox = By.xpath("//*[@name='hobby']/parent::label");
         By countryDropdown = By.xpath("//*[contains(text(), \"Country\")]/following-sibling::select");
         By monthDOBDropdown = By.xpath("//div[@class='time_feild'][1]/select");
         By dayDOBDropdown = By.xpath("//div[@class='time_feild'][2]/select");
@@ -23,12 +25,12 @@ public class RegistrationPage extends BaseHelpers {
         By aboutYourselfInputField = By.xpath("//*[contains(text(), \"About Yourself\")]/following-sibling::textarea");
         By passwordInputField = By.name("password");
         By confirmPasswordInputField = By.name("c_password");
-        By submitButton = By.xpath("//*[@id=\"register_form\"]/fieldset[13]/input");
+        By submitButton = By.xpath("//input[@value='submit']");
     }
 
     public RegistrationPage() {
         openUrl("https://www.way2automation.com/way2auto_jquery/registration.php#load_box");
-        waitforElementVisible(Locators.submitButton);
+        waitforElementVisible(Locators.pageTitle);
     }
 
     public void enterFirstName(String firstName) {
@@ -77,12 +79,15 @@ public class RegistrationPage extends BaseHelpers {
         setValue(Locators.confirmPasswordInputField, confirmPassword);
     }
 
-    public void selectMaritialStatus(String status) {
-        List<WebElement> maritialStatusElements = getAllElements(Locators.maritalStatusRadioButton);
+    public void selectMaritalStatus(String status) {
+        List<WebElement> maritalStatusElements = getAllElements(Locators.maritalStatusRadioButton);
 
-        for (WebElement maritialEle : maritialStatusElements) {
-            maritialEle.click();
-            break;
+        for (WebElement maritalEle : maritalStatusElements) {
+            String text = maritalEle.getText();
+            if (text.equalsIgnoreCase(status)) {
+                maritalEle.click();
+                break;
+            }
         }
     }
 
@@ -90,8 +95,11 @@ public class RegistrationPage extends BaseHelpers {
         List<WebElement> hobbyElements = getAllElements(Locators.hobbyCheckbox);
 
         for (WebElement hobbyEle : hobbyElements) {
-            hobbyEle.click();
-            break;
+            String text = hobbyEle.getText();
+            if (text.equalsIgnoreCase(hobby)) {
+                hobbyEle.click();
+                break;
+            }
         }
     }
 
