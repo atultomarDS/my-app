@@ -11,10 +11,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseHelpers {
     public static WebDriver driver;
+    public UrlHelper urlHelper = new UrlHelper();
 
     public WebDriver chromeLaunch() {
 
-        System.setProperty("webdriver.chrome.driver", "/Users/atul.tomar/driver/chromedriver");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/webdriver/chromedriver");
 
         driver = new ChromeDriver();
 

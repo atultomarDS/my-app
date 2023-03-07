@@ -29,7 +29,7 @@ public class RegistrationPage extends BaseHelpers {
     }
 
     public RegistrationPage() {
-        openUrl("https://www.way2automation.com/way2auto_jquery/registration.php#load_box");
+        openUrl(urlHelper.WAY2AUTOMATION_BASE_URL + urlHelper.REGISTERATION_PAGE_URL);
         waitforElementVisible(Locators.pageTitle);
     }
 
@@ -64,7 +64,7 @@ public class RegistrationPage extends BaseHelpers {
     }
 
     public void uploadProfilePicture(String picturePath) {
-        uploadFile(Locators.yourProfilePictureButton, picturePath);
+        uploadFile(Locators.yourProfilePictureButton, System.getProperty("user.dir")+picturePath);
     }
 
     public void enterAboutYourself(String aboutYourself) {

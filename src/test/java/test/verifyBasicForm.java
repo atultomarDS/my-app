@@ -36,10 +36,10 @@ public class verifyBasicForm extends BrowserSetup {
         bf.setGermanFluency(2);
         Assert.assertTrue(bf.elementContainsText(BasicFormPage.Locators.germanFluencyValidator, "2"));
 
-        bf.uploadCv("/Users/atul.tomar/Downloads/image.jpeg");
+        bf.uploadCv("/src/test/resources/image.jpeg");
         Assert.assertTrue(bf.elementContainsText(BasicFormPage.Locators.validateCv, "image.jpeg"));
 
-        bf.uploadCertificates("/Users/atul.tomar/Downloads/image.jpeg");
+        bf.uploadCertificates("/src/test/resources/image.jpeg");
         Assert.assertTrue(bf.elementContainsText(BasicFormPage.Locators.validateCertificates, "image.jpeg"));
 
         Assert.assertTrue(bf.elementIsDisabled(BasicFormPage.Locators.currentSalary));

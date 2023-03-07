@@ -21,7 +21,7 @@ public class verifyRegistration extends BrowserSetup{
 		rp.enterPhoneNumber("12344556");
 		rp.enterUsername("tommy123");
 		rp.enterEmail("tomar.atul1@gmail.com");
-		rp.uploadProfilePicture("/Users/atul.tomar/Downloads/image.jpeg");
+		rp.uploadProfilePicture("/src/test/resources/image.jpeg");
 		rp.enterAboutYourself("I am a QA");
 		rp.enterPassword("qwerty");
 		rp.enterConfirmPassword("qwerty");

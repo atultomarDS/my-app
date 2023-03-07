@@ -1,13 +1,13 @@
 package page;
 
 import helpers.BaseHelpers;
+import org.apache.commons.lang3.builder.ToStringExclude;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class BasicFormPage extends BaseHelpers {
     public interface Locators {
-
         By pageTitle = By.xpath("//h3[contains(text(), 'Basic Form Controls')]");
         By automationExperience = By.id("exp");
         By automationExperienceValidator = By.id("exp_help");
@@ -42,7 +42,7 @@ public class BasicFormPage extends BaseHelpers {
     }
 
     public BasicFormPage() {
-        openUrl("https://dineshvelhal.github.io/testautomation-playground/forms.html");
+        openUrl(urlHelper.GITHUBIO_BASE_URL + urlHelper.BASIC_FORM_PAGE_URL);
         waitforElementVisible(Locators.pageTitle);
     }
 
@@ -125,11 +125,11 @@ public class BasicFormPage extends BaseHelpers {
     }
 
     public void uploadCv(String cvPath) {
-        uploadFile(BasicFormPage.Locators.uploadCv, cvPath);
+        uploadFile(BasicFormPage.Locators.uploadCv, System.getProperty("user.dir")+cvPath);
     }
 
     public void uploadCertificates(String certiPath) {
-        uploadFile(BasicFormPage.Locators.uploadCertificates, certiPath);
+        uploadFile(BasicFormPage.Locators.uploadCertificates, System.getProperty("user.dir")+certiPath);
     }
 
     public void enterCity(String city) {
